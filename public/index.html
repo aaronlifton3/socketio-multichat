@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Websocket Chat-Room</title>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<link href="/styles/animate.css" rel="stylesheet" type="text/css" />
+		<link href="/styles/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<link href="/styles/main.css" rel="stylesheet" type="text/css" />
+        
+    </head>
+    <body>
+		<div class="container">
+		
+			<div class="navbar">
+			  <div class="navbar-inner">
+		        <div class="container">
+				  <a class="brand" href="/">Websocket Chat-Room</a>
+	              <p class="pull-right">
+	                <button class="btn big-button-green start" type="submit">Sign in</button>
+	              </p>
+	            </div>
+	          </dv>
+		    </div>
+			
+            <div class="content">
+				<div class="well chat-loading" style="display:none;">
+					<div id="nickname-popup">
+						<div class="alert"><strong>Hello!</strong>Enter a nickname up to 15 characters</div>
+						<div class="input"><input type="text" maxlength="15" placeholder="nickname..." /></div>
+						<div class="btn begin">Start</div>
+					</div>
+				</div>
+				
+			    <div id="onChat" class="row">
+			        <div class="span6" id="main">
+			            <div id="messages" class="chat-messages">
+							<ul></ul>
+			            </div>
+			            <textarea class="chat-input" id="talk"></textarea>
+						<div class="chat-submit">
+							<button class="btn">Send &rarr;</button>
+						</div>
+			        </div>
+			        <div class="span2">
+			            <h4>Members</h4>
+						<div class="chat-clients">
+							<ul class=""></ul>
+						</div>
+			            
+			            <h4>Rooms</h4>
+			            <div class="chat-rooms">
+							<ul class=""></ul>
+							<!-- <button type="button" class="btn title-button">+</button> -->
+							
+							<div id="addroom-popup" class="popup animate avgrund-popup">
+								<div class="input"><input type="text" maxlength="10" placeholder="room name..." /></div>
+								<div class="btn big-button-green small create">Create &rarr;</div>
+							</div>
+						</div>
+			        </div>
+			    </div>
+               
+            </div>
+			<hr style="border-color:#ddd;"/>
+
+            <footer>
+                <p>Assembly.io</p>
+            </footer>
+
+        </div>
+		<!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>-->
+		<script type="text/javascript" src="/scripts/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/scripts/jquery.tmpl.min.js"></script>
+		<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+		<script type="text/javascript" src="/scripts/chat.io.js"></script>
+		<script type="text/javascript">
+		$('h1 sup').on('click', function () {
+			if($('.chat').hasClass('bounceOutRight')){
+				$('.chat').removeClass('bounceOutRight');
+				$('.chat').addClass('bounceInLeft');
+				
+				$('.info').removeClass('bounceInLeft');
+				$('.info').addClass('bounceOutRight');
+				
+				window.setTimeout(function(){
+					$('.chat').removeClass('bounceInLeft');
+				}, 1500);
+			} else {
+				$('.chat').removeClass('bounceInLeft');
+				$('.chat').addClass('bounceOutRight');
+				
+				$('.info').removeClass('bounceOutRight');
+				$('.info').addClass('bounceInLeft');
+			}
+			
+		});
+		</script>
+    </body>
+</html>
